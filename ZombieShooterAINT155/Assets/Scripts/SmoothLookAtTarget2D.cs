@@ -6,10 +6,14 @@ public class SmoothLookAtTarget2D : MonoBehaviour {
     public Transform target;
     public float smoothing = 5.0f;
     public float adjustmentAngle = 0.0f;
-	// Use this for initialization
-
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    private void Start()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Hero");
+        target = go.transform;
+    }
+    // Update is called once per frame
+    void Update () {
         if (target != null)
         {
             Vector3 difference = target.position - transform.position;

@@ -7,8 +7,9 @@ public class MoveTowardObject : MonoBehaviour {
     public float speed = 5.0f;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        GameObject go = GameObject.FindGameObjectWithTag("Hero");
+        target = go.transform;
+    }
 	
 	// Update is called once per frame
 	void Update () {
