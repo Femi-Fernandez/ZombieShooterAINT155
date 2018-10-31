@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
 
     public GameObject ZombiePrefab;
+    public Transform zombieSpawner;
     public int respawnTimer = 3;
     private bool canSpawnEnemy = true;
 
@@ -16,7 +17,7 @@ public class EnemySpawner : MonoBehaviour {
     private IEnumerator Spawnenemy()
     {
         yield return new WaitForSeconds(respawnTimer);
-        Instantiate(ZombiePrefab);
+        Instantiate(ZombiePrefab, zombieSpawner.position, zombieSpawner.rotation);
         canSpawnEnemy = true;
     }
 	// Update is called once per frame
