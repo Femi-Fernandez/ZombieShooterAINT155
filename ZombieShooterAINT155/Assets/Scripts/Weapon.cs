@@ -1,17 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.Events;
 
+
+//[System.Serializable]
+//public class onReloadEvent : UnityEvent<bool> { }
 public class Weapon : MonoBehaviour {
+    
+//    public onReloadEvent onReload;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnRight;
     public Transform bulletSpawnLeft;
     public float fireTime = 0.5f;
 
-    public int bulletMagazine = 10;
-    public float reloadTime = 0.0f;
-    private bool emptyMagazine = false;
+
+
+    public int bulletMagazine = 30;
+    public int reloadTime = 1;
+    public bool emptyMagazine = false;
 
     private bool isFiring = false;
 	// Use this for initialization
@@ -34,12 +42,12 @@ public class Weapon : MonoBehaviour {
 
     private IEnumerator ReloadGun()
     {
-            yield return new WaitForSeconds(1);   
-            bulletMagazine = 10;
-            reloadTime = 0.0f;
-            emptyMagazine = false;      
+            yield return new WaitForSeconds(reloadTime);   
+            bulletMagazine = 30;       
+            emptyMagazine = false;  
+        
     }
-	// Update is called once per frame
+//    Update is called once per frame
 	void Update () {
         
         if (Input.GetMouseButton(0) && !emptyMagazine)
@@ -60,6 +68,7 @@ public class Weapon : MonoBehaviour {
         if (Input.GetKeyDown("r"))
         {
             StartCoroutine(ReloadGun());
+          //  onReload.Invoke(true);
         }
 
     }
