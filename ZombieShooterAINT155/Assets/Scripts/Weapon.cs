@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour {
 
 
     public int bulletMagazine = 30;
-    public int reloadTime = 1;
+    public float reloadTime = 1.5f;
     public bool emptyMagazine = false;
 
     private bool isFiring = false;
@@ -61,7 +61,7 @@ public class Weapon : MonoBehaviour {
                     emptyMagazine = true;
                     
                 }
-            }
+            }            
         }
 
 
